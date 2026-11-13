@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#08080d">
+<meta name="description" content="Zakdev — belajar coding, teknologi, dan membangun website.">
+<title>Zakdev — Coding & Technology</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --bg:#08080d;
+  --purple:#8b5cf6;
+  --lav:#c4b5fd;
+  --white:#f7f5ff;
+  --muted:#9693a7;
+  --line:rgba(196,181,253,.14)
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100svh;
+  background:radial-gradient(ellipse at 50% 0%,rgba(139,92,246,.19),transparent 38%),var(--bg);
+  color:var(--white);
+  font-family:'DM Sans',sans-serif;
+  display:flex;
+  justify-content:center;
+  padding:28px 18px 34px
+}
+
+.wrap{
+  width:100%;
+  max-width:440px;
+  margin:auto
+}
+
+.topline{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:var(--muted);
+  font-size:11px;
+  letter-spacing:2.4px;
+  text-transform:uppercase;
+  margin-bottom:34px
+}
+
+.topline:before,.topline:after{
+  content:"";
+  height:1px;
+  width:32px;
+  background:var(--line)
+}
+
+.profile{
+  text-align:center;
+  margin-bottom:28px
+}
+
+/* AVATAR */
+.avatar{
+  width:88px;
+  height:88px;
+  margin:0 auto 17px;
+  border-radius:27px;
+  overflow:hidden;
+  background:linear-gradient(145deg,#a78bfa,#6d28d9 62%,#32146d);
+  display:grid;
+  place-items:center;
+  box-shadow:0 12px 45px rgba(124,58,237,.28);
+  border:1px solid rgba(255,255,255,.2)
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center
+}
+
+h1{
+  font:700 29px 'Space Mono',monospace;
+  letter-spacing:-1.8px;
+  margin:0 0 9px
+}
+
+h1 i{
+  font-style:normal;
+  color:var(--lav)
+}
+
+.tag{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#d8ccff;
+  background:rgba(139,92,246,.12);
+  border:1px solid var(--line);
+  border-radius:30px;
+  padding:6px 11px;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.5px
+}
+
+.tag:before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#a78bfa;
+  box-shadow:0 0 10px #a78bfa
+}
+
+.bio{
+  max-width:310px;
+  margin:15px auto 0;
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.7
+}
+
+.section-label{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:29px 2px 12px;
+  color:#aaa5bc;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:2px;
+  text-transform:uppercase
+}
+
+.section-label:after{
+  content:"";
+  height:1px;
+  flex:1;
+  background:var(--line)
+}
+
+.links{
+  display:grid;
+  gap:12px
+}
+
+.link{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:10px 13px 10px 10px;
+  min-height:91px;
+  border:1px solid var(--line);
+  border-radius:17px;
+  background:linear-gradient(135deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+  color:var(--white);
+  text-decoration:none;
+  transition:.2s ease;
+  overflow:hidden
+}
+
+.link:hover{
+  transform:translateY(-2px);
+  border-color:rgba(167,139,250,.55);
+  background:#171723
+}
+
+.link.primary{
+  background:linear-gradient(110deg,rgba(124,58,237,.24),rgba(109,40,217,.10));
+  border-color:rgba(167,139,250,.38)
+}
+
+.link.primary:hover{
+  background:linear-gradient(110deg,rgba(139,92,246,.32),rgba(109,40,217,.18))
+}
+
+.thumb{
+  width:105px;
+  height:69px;
+  flex:0 0 105px;
+  border-radius:11px;
+  object-fit:cover;
+  background:#211638;
+  border:1px solid rgba(255,255,255,.1)
+}
+
+.copy{
+  min-width:0;
+  flex:1
+}
+
+.copy strong{
+  display:block;
+  font-size:14px;
+  font-weight:800;
+  margin-bottom:4px
+}
+
+.bestseller{
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  margin:2px 0 7px;
+  padding:4px 9px;
+  border:1px solid rgba(190,137,77,.72);
+  border-radius:7px;
+  background:rgba(190,137,77,.045);
+  color:#d6ad7d;
+  font-size:9px;
+  font-weight:700;
+  line-height:1.2;
+  letter-spacing:1.25px;
+  white-space:nowrap
+}
+
+.copy small{
+  display:block;
+  color:rgba(255,255,255,.62);
+  font-size:11px;
+  line-height:1.45
+}
+
+.arrow{
+  font-size:18px;
+  color:rgba(255,255,255,.7);
+  padding-left:2px
+}
+
+.primary .arrow{
+  color:#c4b5fd
+}
+
+.note{
+  text-align:center;
+  margin:25px 0 0;
+  color:#777387;
+  font-size:11px;
+  line-height:1.7
+}
+
+.note b{color:#b8a4f7}
+
+footer{
+  margin-top:27px;
+  padding-top:17px;
+  border-top:1px solid var(--line);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:7px;
+  color:#777387;
+  font-size:10px;
+  letter-spacing:.7px
+}
+
+footer span{color:#a78bfa}
+
+@media(max-width:360px){
+  .thumb{width:86px;flex-basis:86px;height:64px}
+  .copy strong{font-size:13px}
+  .copy small{font-size:10px}
+}
+
+@media(min-width:600px){
+  body{padding-top:48px}
+  .wrap{padding:10px 0}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{transition:none!important}
+}
+
+/* TESTIMONIALS */
+
+.testimonials{
+  margin:42px 0 0;
+  padding:24px 16px 20px;
+  border:1px solid rgba(196,181,253,.12);
+  border-radius:20px;
+  background:linear-gradient(145deg,rgba(139,92,246,.075),rgba(255,255,255,.012))
+}
+
+.testimonial-heading{
+  text-align:center;
+  margin-bottom:19px
+}
+
+.testimonial-kicker{
+  color:#a78bfa;
+  font:700 9px 'Space Mono',monospace;
+  letter-spacing:2px
+}
+
+.testimonial-heading h2{
+  font-size:21px;
+  margin:8px 0 6px;
+  letter-spacing:-.5px
+}
+
+.testimonial-heading h2 span{color:var(--lav)}
+
+.testimonial-heading p{
+  margin:0;
+  color:var(--muted);
+  font-size:12px
+}
+
+.testimonial-slider{
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  overscroll-behavior-x:contain;
+  -webkit-overflow-scrolling:touch;
+  scroll-snap-type:x mandatory;
+  scrollbar-width:none;
+  touch-action:pan-x;
+  cursor:grab
+}
+
+.testimonial-slider:active{cursor:grabbing}
+.testimonial-slider::-webkit-scrollbar{display:none}
+
+.testimonial-grid{
+  display:flex;
+  align-items:stretch;
+  gap:11px;
+  width:max-content;
+  min-width:100%
+}
+
+.testimonial-card{
+  flex:0 0 min(82vw,300px);
+  min-width:0;
+  width:min(82vw,300px);
+  padding:7px;
+  text-align:left;
+  border:1px solid var(--line);
+  border-radius:13px;
+  background:#111019;
+  color:var(--white);
+  cursor:pointer;
+  scroll-snap-align:start;
+  scroll-snap-stop:normal;
+  transition:border-color .2s ease;
+  font-family:inherit
+}
+
+.testimonial-card:hover{
+  transform:translateY(-2px);
+  border-color:rgba(167,139,250,.6)
+}
+
+.testimonial-card img{
+  display:block;
+  width:100%;
+  max-height:270px;
+  aspect-ratio:4/5;
+  object-fit:contain;
+  background:#09090f;
+  border-radius:8px
+}
+
+.testimonial-caption{
+  display:block;
+  padding:9px 3px 2px;
+  color:#c4b5fd;
+  font:700 9px 'Space Mono',monospace;
+  letter-spacing:.5px
+}
+
+.testimonial-role{
+  display:block;
+  padding:0 3px 5px;
+  color:#9693a7;
+  font-size:10px;
+  font-weight:500
+}
+
+.testimonial-note{
+  text-align:center;
+  color:#777387;
+  font-size:10px;
+  margin:15px 0 0
+}
+
+/* IMAGE PREVIEW MODAL */
+
+.testimonial-modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  background:rgba(0,0,0,.94);
+  align-items:center;
+  justify-content:center;
+  padding:24px
+}
+
+.testimonial-modal.active{display:flex}
+
+.testimonial-modal img{
+  max-width:100%;
+  max-height:86vh;
+  object-fit:contain;
+  border-radius:10px
+}
+
+.modal-close{
+  position:absolute;
+  top:12px;
+  right:17px;
+  border:0;
+  background:transparent;
+  color:white;
+  font-size:36px;
+  cursor:pointer
+}
+</style>
+</head>
+
+<body>
+<main class="wrap">
+
+  <div class="topline">Creator • Developer • Builder</div>
+
+  <header class="profile">
+
+    <!-- AVATAR -->
+    <div class="avatar" aria-label="Zakdev profile photo">
+      <img src="images/profile.jpg" alt="Zakdev">
+    </div>
+
+    <h1>zak<i>dev</i></h1>
+
+    <div class="tag">CODING &amp; TECHNOLOGY</div>
+
+    <p class="bio">
+      Membangun skill digital dari nol. Temukan panduan coding,
+      insight teknologi, dan resource untuk mulai membangun sesuatu.
+    </p>
+
+  </header>
+
+  <div class="section-label">Mulai dari sini</div>
+
+  <nav class="links" aria-label="Tautan utama">
+
+    <a class="link primary" href="https://lynk.id/wanzans/32mk1xz61kx9" target="_blank" rel="noopener noreferrer">
+      <img class="thumb" src="images/ebook.webp" alt="Ilustrasi ebook dan belajar digital">
+      <span class="copy">
+        <strong>Dapatkan Ebook</strong>
+        <span class="bestseller">PALING LARIS</span>
+        <small>Panduan belajar dan mulai praktik coding</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link" href="https://whatsapp.com/channel/0029VbEAEg73WHTSUoCmFT2p" target="_blank" rel="noopener noreferrer">
+      <img class="thumb" src="images/WhatsApp.webp" alt="Komunitas dan kolaborasi">
+      <span class="copy">
+        <strong>Join Saluran Zakdev</strong>
+        <small>Update, resource, dan konten eksklusif</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+    <a class="link" href="https://wa.me/message/ZV3VTSBFAPJUM1?src=qr" target="_blank" rel="noopener noreferrer">
+      <img class="thumb" src="images/chat.png" alt="Diskusi dan kerja sama teknologi">
+      <span class="copy">
+        <strong>Hubungi @zakdev</strong>
+        <small>Diskusi, pertanyaan, atau kerja sama</small>
+      </span>
+      <span class="arrow">→</span>
+    </a>
+
+  </nav>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials" id="testimoni" aria-labelledby="testimonial-title">
+
+    <div class="testimonial-heading">
+      <span class="testimonial-kicker">REAL FEEDBACK</span>
+      <h2 id="testimonial-title">Apa Kata Mereka<span>?</span></h2>
+      <p>Beberapa feedback dari pengguna Zakdev.</p>
+    </div>
+
+    <div class="testimonial-slider" id="testimonialSlider" aria-label="Testimoni pengguna, geser ke kiri atau kanan">
+      <div class="testimonial-grid" id="testimonialTrack">
+
+      <!-- TESTIMONI 01 -->
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
+        <img src="images/testimoni-1.jpg" alt="Testimoni pengguna Zakdev 1">
+        <span class="testimonial-role">Pembeli Ebook</span>
+      </button>
+
+      <!-- TESTIMONI 02 -->
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
+        <img src="images/testimoni-2.jpg" alt="Testimoni pengguna Zakdev 2">
+        <span class="testimonial-role">Pembeli Ebook</span>
+      </button>
+
+      <!-- TESTIMONI 03 -->
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
+        <img src="images/testimoni-3.jpg" alt="Testimoni pengguna Zakdev 3">
+        <span class="testimonial-role">Pembeli Ebook</span>
+      </button>
+
+      <!-- TESTIMONI 04 -->
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
+        <img src="images/testimoni-4.jpg" alt="Testimoni pengguna Zakdev 4">
+        <span class="testimonial-role">Pembeli Ebook</span>
+      </button>
+
+      </div>
+    </div>
+
+    <p class="testimonial-note">
+      Feedback asli dari pengguna Zakdev.
+    </p>
+
+  </section>
+
+  <!-- TESTIMONIAL MODAL -->
+  <div class="testimonial-modal" id="testimonialModal" role="dialog" aria-modal="true" aria-label="Preview testimoni" onclick="closeTestimonial()">
+
+    <button class="modal-close" type="button" aria-label="Tutup" onclick="closeTestimonial()">&times;</button>
+
+    <img id="testimonialPreview" src="" alt="Preview testimoni">
+
+  </div>
+
+  <p class="note">
+    Punya tujuan untuk belajar coding?
+    <b>Mulai satu langkah hari ini.</b>
+  </p>
+
+  <footer>
+    BUILT WITH <span>♥</span> BY ZAKDEV
+  </footer>
+
+</main>
+
+<script>
+function openTestimonial(card){
+  const image = card.querySelector('img');
+
+  if(!image || !image.complete || image.naturalWidth === 0) return;
+
+  document.getElementById('testimonialPreview').src = image.src;
+  document.getElementById('testimonialModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeTestimonial(){
+  document.getElementById('testimonialModal').classList.remove('active');
+  document.getElementById('testimonialPreview').src = '';
+  document.body.style.overflow = '';
+}
+
+// Infinite testimonial carousel: swipe only, no navigation buttons or numbering.
+(function initTestimonialCarousel(){
+  const slider = document.getElementById('testimonialSlider');
+  const track = document.getElementById('testimonialTrack');
+  if(!slider || !track) return;
+
+  const originals = Array.from(track.children);
+  if(originals.length < 2) return;
+
+  const makeClones = () => originals.map(card => {
+    const clone = card.cloneNode(true);
+    clone.setAttribute('aria-hidden','true');
+    clone.setAttribute('tabindex','-1');
+    clone.querySelectorAll('button').forEach(button => button.setAttribute('tabindex','-1'));
+    return clone;
+  });
+
+  const before = makeClones();
+  const after = makeClones();
+  before.reverse().forEach(card => track.insertBefore(card, track.firstChild));
+  after.forEach(card => track.appendChild(card));
+
+  let cycleWidth = 0;
+  let basePosition = 0;
+  let adjusting = false;
+
+  const measure = () => {
+    const firstOriginal = track.children[originals.length];
+    const firstAfter = track.children[originals.length * 2];
+    if(!firstOriginal || !firstAfter) return;
+
+    const sliderLeft = slider.getBoundingClientRect().left;
+    basePosition = firstOriginal.getBoundingClientRect().left - sliderLeft + slider.scrollLeft;
+    cycleWidth = firstAfter.getBoundingClientRect().left - firstOriginal.getBoundingClientRect().left;
+    slider.scrollLeft = basePosition;
+  };
+
+  slider.addEventListener('scroll', () => {
+    if(adjusting || !cycleWidth) return;
+
+    if(slider.scrollLeft < basePosition){
+      adjusting = true;
+      slider.scrollLeft += cycleWidth;
+      requestAnimationFrame(() => { adjusting = false; });
+    } else if(slider.scrollLeft >= basePosition + cycleWidth){
+      adjusting = true;
+      slider.scrollLeft -= cycleWidth;
+      requestAnimationFrame(() => { adjusting = false; });
+    }
+  }, {passive:true});
+
+  window.addEventListener('resize', measure);
+  window.addEventListener('load', measure);
+  measure();
+})(); 
+
+document.addEventListener('keydown',e=>{
+  if(e.key === 'Escape') closeTestimonial();
+});
+</script>
+
+</body>
+</html>
