@@ -1,13 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NWRDYY9RSX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-NWRDYY9RSX');
-  </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#08080d">
@@ -504,31 +497,33 @@ footer span{color:#a78bfa}
       <div class="testimonial-grid" id="testimonialTrack">
 
       <!-- TESTIMONI 01 -->
-      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" data-analytics-name="Testimoni 1" onclick="openTestimonial(this)">
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
         <img src="images/testimoni-1.jpg" alt="Testimoni pengguna Zakdev 1">
         <span class="testimonial-role">Pembeli Ebook</span>
       </button>
 
       <!-- TESTIMONI 02 -->
-      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" data-analytics-name="Testimoni 2" onclick="openTestimonial(this)">
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
         <img src="images/testimoni-2.jpg" alt="Testimoni pengguna Zakdev 2">
         <span class="testimonial-role">Pembeli Ebook</span>
       </button>
 
       <!-- TESTIMONI 03 -->
-      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" data-analytics-name="Testimoni 3" onclick="openTestimonial(this)">
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
         <img src="images/testimoni-3.jpg" alt="Testimoni pengguna Zakdev 3">
         <span class="testimonial-role">Pembeli Ebook</span>
       </button>
 
       <!-- TESTIMONI 04 -->
-      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" data-analytics-name="Testimoni 4" onclick="openTestimonial(this)">
+      <button class="testimonial-card" type="button" aria-label="Lihat testimoni pengguna" onclick="openTestimonial(this)">
         <img src="images/testimoni-4.jpg" alt="Testimoni pengguna Zakdev 4">
         <span class="testimonial-role">Pembeli Ebook</span>
       </button>
 
       </div>
     </div>
+
+   <p style="text-align: center;"> >>> </p>
 
     <p class="testimonial-note">
       Feedback asli dari pengguna Zakdev.
@@ -539,7 +534,7 @@ footer span{color:#a78bfa}
   <!-- TESTIMONIAL MODAL -->
   <div class="testimonial-modal" id="testimonialModal" role="dialog" aria-modal="true" aria-label="Preview testimoni" onclick="closeTestimonial()">
 
-    <button class="modal-close" type="button" aria-label="Tutup" data-analytics-name="Tutup preview testimoni" onclick="closeTestimonial()">&times;</button>
+    <button class="modal-close" type="button" aria-label="Tutup" onclick="closeTestimonial()">&times;</button>
 
     <img id="testimonialPreview" src="" alt="Preview testimoni">
 
@@ -632,32 +627,6 @@ function closeTestimonial(){
 document.addEventListener('keydown',e=>{
   if(e.key === 'Escape') closeTestimonial();
 });
-
-// GA4 interaction tracking: records clicks on links and buttons.
-document.addEventListener('click', function(event) {
-  const element = event.target.closest('a, button');
-  if (!element || typeof gtag !== 'function') return;
-
-  const isLink = element.tagName === 'A';
-  const type = isLink ? 'link' : 'button';
-  const name = element.dataset.analyticsName ||
-    (element.querySelector('strong')?.textContent ||
-     element.getAttribute('aria-label') ||
-     element.textContent).trim().replace(/\\s+/g, ' ').slice(0, 100);
-
-  const location = element.closest('.testimonials') ? 'Testimonials' :
-    element.closest('.links') ? 'Main Links' :
-    element.closest('footer') ? 'Footer' : 'Other';
-
-  gtag('event', isLink ? 'link_click' : 'button_click', {
-    element_name: name || 'Unnamed element',
-    element_type: type,
-    element_location: location,
-    link_url: isLink ? element.href : undefined,
-    transport_type: 'beacon'
-  });
-});
-
 </script>
 
 </body>
